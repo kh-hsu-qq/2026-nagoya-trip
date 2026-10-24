@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 名古屋自由行</title>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFCF6;--ink:#3E3A39;--co:#F2A497;--ye:#F6D27A;--sk:#A8D3E6;--gr:#B9DAA5;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Huninn','Noto Sans TC','PingFang TC',sans-serif;line-height:1.7;font-size:16px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ye);z-index:30}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:6px;padding:8px 10px;background:var(--ye);border-bottom:3px solid var(--ink);overflow-x:auto}
+nav a{flex:1 0 auto;text-align:center;padding:4px 12px;border:3px solid var(--ink);border-radius:999px;background:var(--bg);color:var(--ink);text-decoration:none;font-size:14px}
+main{max-width:560px;margin:0 auto;padding:16px 14px 40px}
+section{margin-top:26px}
+h2{margin:0 0 12px;font-size:22px;font-weight:400}
+.card{background:var(--bg);border:3px solid var(--ink);border-radius:26px;padding:16px;margin-bottom:14px}
+.hero{text-align:center}
+.hero svg{width:100%;height:auto;display:block;border:3px solid var(--ink);border-radius:26px;background:var(--sk)}
+.hero h1{margin:14px 0 2px;font-size:28px;font-weight:400}
+.hero p{margin:0;font-size:14px}
+.count{display:inline-block;margin-top:12px;padding:6px 20px;background:var(--co);border:3px solid var(--ink);border-radius:999px}
+.count b{font-size:28px;font-weight:400}
+.flight{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:center}
+.flight .c{font-size:26px}
+.flight small{display:block;font-size:13px}
+.flight .mid{flex:1;font-size:13px;border-top:3px dashed var(--ink);padding-top:2px;position:relative}
+.tag{display:inline-block;padding:0 10px;border:3px solid var(--ink);border-radius:999px;font-size:13px;line-height:1.5;margin-right:4px}
+.t-m{background:var(--sk)}.t-n{background:var(--co)}.t-a{background:var(--gr)}.t-w{background:var(--ye)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px}
+.tabs button{flex:0 0 auto;min-width:62px;font:inherit;color:var(--ink);background:var(--bg);border:3px solid var(--ink);border-radius:20px;padding:4px 10px;line-height:1.3;cursor:pointer}
+.tabs button small{display:block;font-size:12px}
+.tabs button[aria-selected=true]{background:var(--co)}
+.dayc[hidden]{display:none}.js .dh{display:none}.dh{font-size:18px;margin-bottom:8px}.dayc.pop{animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+.theme{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 12px}
+.theme b{font-weight:400;font-size:19px}
+ol{list-style:none;margin:0;padding:0 0 0 14px;border-left:3px dashed var(--ink)}
+li{position:relative;padding:0 0 14px 18px}
+li::before{content:"";position:absolute;left:-12px;top:7px;width:14px;height:14px;border:3px solid var(--ink);border-radius:50%;background:var(--bg)}
+li.must::before{background:var(--co)}
+.time{font-size:13px;display:block;opacity:.8}
+.must-b{display:inline-block;transform:rotate(-4deg);background:var(--co);border:3px solid var(--ink);border-radius:12px;padding:0 8px;font-size:13px;margin-left:4px}
+.note{background:var(--ye);border:3px solid var(--ink);border-radius:20px;padding:10px 14px;font-size:14px;margin-top:4px}
+.todo h3{margin:6px 0;font-size:16px;font-weight:400}
+.todo label{display:flex;gap:10px;align-items:flex-start;padding:4px 0;cursor:pointer}
+.todo input{appearance:none;flex:0 0 26px;width:26px;height:26px;margin:0;border:3px solid var(--ink);border-radius:9px;background:var(--bg);display:grid;place-items:center}
+.todo input:checked{background:var(--gr)}
+.todo input:checked::after{content:"✓";font-size:16px;line-height:1}
+.todo input:checked+span{text-decoration:line-through;opacity:.55}
+.hotel{display:flex;gap:12px;align-items:center}
+.hotel svg{flex:0 0 96px;width:96px}
+.hotel b{font-weight:400;font-size:18px}
+footer{text-align:center;font-size:13px;margin-top:24px}
+.cloud{animation:drift 12s ease-in-out infinite alternate}
+.cloud2{animation-duration:16s;animation-direction:alternate-reverse}
+.sun{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.train{animation:ride 9s linear infinite}
+.leaf{animation:fall 7s linear infinite}
+.leaf:nth-of-type(2n){animation-duration:9s;animation-delay:-3s}
+.leaf:nth-of-type(3n){animation-duration:11s;animation-delay:-6s}
+.sha{animation:bob 3s ease-in-out infinite}
+@keyframes drift{to{transform:translateX(26px)}}
+@keyframes bob{50%{transform:translateY(-4px)}}
+@keyframes ride{from{transform:translateX(-90px)}to{transform:translateX(380px)}}
+@keyframes fall{from{transform:translate(0,-20px) rotate(0)}to{transform:translate(-30px,230px) rotate(240deg)}}
+@keyframes pop{0%{transform:scale(.92) translateY(10px);opacity:.4}100%{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><a href="#top">首頁</a><a href="#flight">航班</a><a href="#plan">行程</a><a href="#todo">待辦</a><a href="#stay">住宿</a></nav>
+<main>
+<section id="top" class="hero">
+<svg viewBox="0 0 360 230" role="img" aria-label="名古屋城、名鐵列車與銀杏落葉的插圖">
+<circle class="sun" cx="300" cy="46" r="24" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+<g class="cloud"><rect x="30" y="30" width="70" height="24" rx="12" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><rect x="48" y="18" width="36" height="22" rx="11" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><rect x="40" y="36" width="52" height="16" fill="#FFFCF6"/></g>
+<g class="cloud cloud2"><rect x="200" y="70" width="60" height="20" rx="10" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/></g>
+<path d="M0 190 Q90 160 180 185 T360 175 V230 H0Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/>
+<g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+<path d="M112 192 L124 150 H236 L248 192Z" fill="#FFFCF6"/>
+<rect x="138" y="118" width="84" height="32" fill="#FFFCF6"/>
+<polygon points="122,120 238,120 220,100 140,100" fill="#B9DAA5"/>
+<rect x="152" y="76" width="56" height="24" fill="#FFFCF6"/>
+<polygon points="140,78 220,78 204,58 156,58" fill="#B9DAA5"/>
+<rect x="166" y="44" width="28" height="14" fill="#FFFCF6"/>
+<polygon points="158,46 202,46 190,30 170,30" fill="#B9DAA5"/>
+<g class="sha"><path d="M166 30 Q160 16 170 14 Q168 24 174 28Z" fill="#F6D27A"/><path d="M194 30 Q200 16 190 14 Q192 24 186 28Z" fill="#F6D27A"/></g>
+<rect x="172" y="162" width="16" height="30" rx="8" fill="#F6D27A"/>
+</g>
+<g fill="#3E3A39"><rect x="150" y="128" width="8" height="10" rx="3"/><rect x="176" y="128" width="8" height="10" rx="3"/><rect x="202" y="128" width="8" height="10" rx="3"/><rect x="174" y="84" width="12" height="10" rx="3"/></g>
+<g class="train" stroke="#3E3A39" stroke-width="3"><rect x="0" y="196" width="76" height="26" rx="10" fill="#F2A497"/><rect x="8" y="202" width="14" height="10" rx="3" fill="#A8D3E6"/><rect x="28" y="202" width="14" height="10" rx="3" fill="#A8D3E6"/><rect x="48" y="202" width="14" height="10" rx="3" fill="#A8D3E6"/><circle cx="16" cy="224" r="5" fill="#FFFCF6"/><circle cx="60" cy="224" r="5" fill="#FFFCF6"/></g>
+<line x1="0" y1="229" x2="360" y2="229" stroke="#3E3A39" stroke-width="3"/>
+<g stroke="#3E3A39" stroke-width="2"><path class="leaf" d="M60 0 q10 6 0 16 q-10 -6 0 -16z" fill="#F6D27A"/><path class="leaf" d="M110 0 q10 6 0 16 q-10 -6 0 -16z" fill="#F6D27A"/><path class="leaf" d="M270 0 q10 6 0 16 q-10 -6 0 -16z" fill="#F6D27A"/><path class="leaf" d="M320 20 q10 6 0 16 q-10 -6 0 -16z" fill="#F6D27A"/><path class="leaf" d="M200 0 q10 6 0 16 q-10 -6 0 -16z" fill="#F2A497"/></g>
+</svg>
+<h1>2026 名古屋自由行</h1>
+<p>11/16（一）～ 11/22（日）・7 天 6 夜</p>
+<div class="count" id="count">2026/11/16 出發</div>
+</section>
+
+<section id="flight">
+<h2>✈ 航班</h2>
+<div class="card">
+<p style="margin:0 0 10px"><span class="tag t-a">國泰航空</span></p>
+<div class="flight"><div><span class="c">台北</span><small>去程</small></div><div class="mid">11/16 · 15:35 抵達</div><div><span class="c">名古屋</span><small>中部國際機場</small></div></div>
+</div>
+<div class="card">
+<div class="flight"><div><span class="c">名古屋</span><small>中部國際機場</small></div><div class="mid">11/22 · 16:40 起飛</div><div><span class="c">台北</span><small>回程</small></div></div>
+</div>
+</section>
+
+<section id="plan">
+<h2>🗓 每日行程</h2>
+<div class="tabs" id="tabs" role="tablist"></div>
+<div id="days"><div class="card dayc" data-i="0"><div class="dh">Day 1・11/16（一）</div><div class="theme"><b>抵達名古屋</b><span class="tag t-w">入住與休息</span></div><ol><li class=""><span class="time">15:35</span>抵達中部國際機場，入境、領行李</li><li class=""><span class="tag t-n">名鐵</span>搭名鐵前往名鐵名古屋站</li><li class="">到飯店辦理入住</li><li class=""><span class="time">晚上</span>在名古屋車站或 JR Gate Tower 餐廳樓層晚餐，回房休息</li></ol><div class="note">💡 抵達當天不安排其他景點，預留入境與交通緩衝時間。</div></div><div class="card dayc" data-i="1"><div class="dh">Day 2・11/17（二）</div><div class="theme"><b>東山動植物園</b><span class="tag t-w">動物與自然</span></div><ol><li class=""><span class="time">09:00</span><span class="tag t-m">地鐵</span>從飯店出發，搭地鐵東山線到東山公園站</li><li class=""><span class="tag t-w">步行</span>下車步行約 3 分鐘</li><li class="must"><span class="time">上午</span>參觀動物園，優先看孩子喜歡的動物<span class="must-b">必去</span></li><li class=""><span class="time">中午</span>在園區內或附近用餐</li><li class=""><span class="time">下午</span>視體力逛植物園，或提早回飯店</li><li class=""><span class="time">傍晚</span>回名古屋車站附近用餐</li></ol><div class="note">💡 建議停留 4～6 小時。園區很大，不必全部逛完；部分動物約 16:00 起會陸續回到室內。</div></div><div class="card dayc" data-i="2"><div class="dh">Day 3・11/18（三）</div><div class="theme"><b>LEGOLAND</b><span class="tag t-w">兒童主題樂園</span></div><ol><li class=""><span class="time">早上</span><span class="tag t-a">青波線</span>名古屋站搭青波線到金城埠頭站</li><li class=""><span class="tag t-w">步行</span>步行約 10 分鐘，盡量開園時抵達</li><li class="must"><span class="time">上午</span>安排主要遊樂設施<span class="must-b">必去</span></li><li class=""><span class="time">中午</span>園區內用餐</li><li class=""><span class="time">下午</span>繼續玩設施、看 LEGO 主題展示</li><li class=""><span class="time">傍晚</span>返回名古屋車站附近</li></ol><div class="note">💡 建議停留 6～8 小時。提前買門票，出發前看營業時間與維修公告；2 歲小朋友的身高可能限制部分設施，先查好限制。</div></div><div class="card dayc" data-i="3"><div class="dh">Day 4・11/19（四）</div><div class="theme"><b>名古屋港水族館</b><span class="tag t-w">海洋生物與表演</span></div><ol><li class=""><span class="time">上午</span><span class="tag t-m">地鐵</span>地鐵東山線到榮站，轉名城／名港線到名古屋港站</li><li class=""><span class="tag t-w">步行</span>從 3 號出口步行約 5 分鐘</li><li class="must"><span class="time">上午</span>海洋生物展區與當日表演<span class="must-b">必去</span></li><li class=""><span class="time">中午</span>在港區用餐</li><li class=""><span class="time">下午</span>視孩子體力決定離場時間</li><li class=""><span class="time">傍晚</span>回名古屋站附近</li></ol><div class="note">💡 建議停留 4～6 小時。出發前確認表演時刻表，別錯過孩子最想看的節目。</div></div><div class="card dayc" data-i="4"><div class="dh">Day 5・11/20（五）</div><div class="theme"><b>名城公園＋名古屋城</b><span class="tag t-w">秋季散步與歷史</span></div><ol><li class="must"><span class="time">上午</span><span class="tag t-m">地鐵</span>搭地鐵到名城公園周邊站，散步賞銀杏<span class="must-b">必去</span></li><li class=""><span class="time">中午</span>用餐與休息</li><li class=""><span class="time">下午</span><span class="tag t-m">地鐵</span>搭地鐵名城線到名古屋城站，視體力入內參觀</li><li class="">孩子累了就直接回飯店</li><li class=""><span class="time">傍晚</span>名古屋車站附近晚餐</li></ol><div class="note">💡 建議停留 3～5 小時。銀杏與紅葉狀況會受當年天候影響。</div></div><div class="card dayc" data-i="5"><div class="dh">Day 6・11/21（六）</div><div class="theme"><b>熱田神宮＋白鳥庭園</b><span class="tag t-w">神社與紅葉點燈</span></div><ol><li class=""><span class="time">09:30</span><span class="tag t-n">名鐵</span>出發到熱田神宮（名鐵神宮前站，或地鐵熱田神宮西站）</li><li class="must"><span class="time">上午</span>境內散步、參拜、拍照（約 1.5～2 小時）<span class="must-b">必去</span></li><li class=""><span class="time">11:30</span>午餐與休息（～13:00）</li><li class=""><span class="time">13:30</span><span class="tag t-m">地鐵</span>地鐵名城線到熱田神宮西站，步行約 10 分鐘到白鳥庭園</li><li class=""><span class="time">下午</span>賞日間庭園、池塘與秋景（約 2～3 小時）</li><li class="must"><span class="time">16:00</span>紅葉點燈開始<span class="must-b">必去</span></li><li class=""><span class="time">17:00</span>視孩子體力回程，不必待到結束</li><li class=""><span class="time">晚上</span>回名古屋車站附近用餐</li></ol><div class="note">💡 白鳥庭園 11/21 開園延長到 20:00，最後入園 19:30；免預約，一般門票成人 ¥300、中學生以下免費。晚間較冷，記得帶外套。</div></div><div class="card dayc" data-i="6"><div class="dh">Day 7・11/22（日）</div><div class="theme"><b>採買與返台</b><span class="tag t-w">輕鬆採買與返程</span></div><ol><li class=""><span class="time">上午</span>在車站附近吃早餐，視時間最後採買</li><li class="">回飯店取行李</li><li class=""><span class="time">12:30</span><span class="tag t-n">名鐵</span>約 12:30～13:00 從名古屋站出發</li><li class="">搭名鐵到中部國際機場</li><li class="must"><span class="time">16:40</span>班機起飛，平安回家<span class="must-b">必去</span></li></ol><div class="note">💡 不安排遠距離景點，保留充足的機場報到、托運與安檢時間。</div></div></div>
+<p style="font-size:13px;margin:0"><span class="tag t-m">地鐵</span><span class="tag t-n">名鐵</span><span class="tag t-a">青波線</span><span class="tag t-w">步行</span></p>
+</section>
+
+<section id="todo">
+<h2>✅ 待辦清單</h2>
+<div class="card todo" id="todos"><h3>優先處理</h3><label><input type="checkbox" data-k="0-0"><span>購買 11/18 樂高樂園指定日期門票</span></label><label><input type="checkbox" data-k="0-1"><span>確認 11/19 水族館營業時間與表演時刻</span></label><label><input type="checkbox" data-k="0-2"><span>確認 11/21 白鳥庭園紅葉點燈官方公告</span></label><label><input type="checkbox" data-k="0-3"><span>確認名鐵機場往返班次，及是否需要 μSKY 指定座位券</span></label><h3>可到現場處理</h3><label><input type="checkbox" data-k="1-0"><span>東山動植物園門票</span></label><label><input type="checkbox" data-k="1-1"><span>名古屋城門票</span></label><label><input type="checkbox" data-k="1-2"><span>白鳥庭園門票</span></label><label><input type="checkbox" data-k="1-3"><span>市區地鐵票或交通 IC 卡儲值</span></label></div>
+<div class="card" style="font-size:14px">🚃 準備可在名古屋使用的交通 IC 卡，搭地鐵與電車直接刷卡；地鐵 24 小時券可視當天搭乘次數再決定要不要買。機場往返名鐵的 μSKY 指定座位券可預買。</div>
+</section>
+
+<section id="stay">
+<h2>🏨 住宿</h2>
+<div class="card hotel">
+<svg viewBox="0 0 96 110" aria-hidden="true"><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><rect x="22" y="10" width="52" height="94" rx="10" fill="#A8D3E6"/><rect x="10" y="56" width="76" height="48" rx="10" fill="#FFFCF6"/><rect x="34" y="22" width="12" height="12" rx="3" fill="#F6D27A"/><rect x="52" y="22" width="12" height="12" rx="3" fill="#F6D27A"/><rect x="34" y="42" width="12" height="12" rx="3" fill="#F6D27A"/><rect x="52" y="42" width="12" height="12" rx="3" fill="#F6D27A"/><rect x="40" y="76" width="16" height="28" rx="8" fill="#F2A497"/></g></svg>
+<div><b>Nagoya JR Gate Tower Hotel</b><br>11/16 入住 ～ 11/22 退房<br><span style="font-size:14px">位於名古屋車站，晚餐可直接在 JR Gate Tower 餐廳樓層解決。</span></div>
+</div>
+</section>
+<footer>🍁 慢慢玩，累了就回飯店休息 🍁</footer>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+document.documentElement.classList.add("js");
+const D=[...document.querySelectorAll(".dayc")],tb=$("#tabs");let cur=0;
+tb.innerHTML=D.map((c,i)=>{const t=c.querySelector(".dh").textContent.split("・");return '<button role="tab" data-i="'+i+'">'+t[0]+'<small>'+t[1]+'</small></button>'}).join("");
+function show(pop){D.forEach((c,i)=>{c.hidden=i!=cur;c.classList.remove("pop")});[...tb.children].forEach((b,i)=>b.setAttribute("aria-selected",i==cur));if(pop){void D[cur].offsetWidth;D[cur].classList.add("pop")}}
+tb.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cur=+b.dataset.i;show(true);b.scrollIntoView({inline:"center",block:"nearest"})});
+show(false);
+let saved={};try{saved=JSON.parse(localStorage.getItem("nagoya-todo")||"{}")}catch(e){}
+document.querySelectorAll("#todos input").forEach(i=>{i.checked=!!saved[i.dataset.k]});
+$("#todos").addEventListener("change",e=>{saved[e.target.dataset.k]=e.target.checked;try{localStorage.setItem("nagoya-todo",JSON.stringify(saved))}catch(err){}});
+(function(){const n=Date.now(),s=new Date("2026-11-16T00:00:00+08:00"),e=new Date("2026-11-23T00:00:00+08:00");
+$("#count").innerHTML=n>=e?"旅程結束，平安回家 🏠":n>=s?"旅程進行中 🎒":'出發倒數 <b>'+Math.ceil((s-n)/864e5)+'</b> 天'})();
+</script>
+</body>
+</html>
