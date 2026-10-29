@@ -75,6 +75,9 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 .tr7 b{font-weight:400;font-size:14.5px;display:block}
 .tr7 small{font-size:13px;display:block}
 .tr7 .t{margin-left:6px;vertical-align:1px}
+.wx{display:flex;gap:10px;align-items:center;border:3px solid var(--ink);border-radius:20px;background:var(--bg);padding:6px 14px;margin-bottom:12px;font-size:14px;animation:pop .5s .05s both}
+.wx svg{flex:0 0 38px;width:38px;height:38px}.wx b{font-weight:400;font-size:16px}
+.nw{display:none;margin-top:8px;font-size:14px;align-items:center;justify-content:center;gap:6px}.nw.on{display:flex}.nw svg{width:28px;height:28px}
 .foot{text-align:center;font-size:13px;margin-top:20px}
 .cloud{animation:fl 8s ease-in-out infinite alternate}.cloud.b{animation-duration:11s;animation-direction:alternate-reverse}
 @keyframes fl{to{transform:translateX(26px)}}
@@ -100,6 +103,12 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 <symbol id="i6" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><rect x="14" y="26" width="7" height="30" fill="#F2A497"/><rect x="43" y="26" width="7" height="30" fill="#F2A497"/><rect x="12" y="35" width="40" height="6" fill="#F2A497"/><path d="M4 16Q32 26 60 16L57 26Q32 32 7 26Z" fill="#F2A497"/></symbol>
 <symbol id="i7" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><g transform="rotate(-20 32 32)"><path d="M28 30L20 12H29L42 30Z" fill="#F2A497"/><path d="M28 34L20 52H29L42 34Z" fill="#F2A497"/><ellipse cx="32" cy="32" rx="27" ry="7" fill="#FFFCF6"/><path d="M8 29L4 20H12L16 28Z" fill="#F2A497"/></g></symbol>
 <symbol id="i8" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><rect x="18" y="12" width="28" height="46" rx="4" fill="#F6D27A"/><path d="M32 12V4" /><rect x="24" y="20" width="6" height="6" fill="#FFFCF6"/><rect x="34" y="20" width="6" height="6" fill="#FFFCF6"/><rect x="24" y="31" width="6" height="6" fill="#FFFCF6"/><rect x="34" y="31" width="6" height="6" fill="#FFFCF6"/><rect x="27" y="45" width="10" height="13" fill="#F2A497"/></symbol>
+<symbol id="w1" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="32" cy="32" r="12" fill="#F6D27A"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l6 6M43 43l6 6M49 15l-6 6M21 43l-6 6" fill="none"/></symbol>
+<symbol id="w2" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="24" cy="24" r="11" fill="#F6D27A"/><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#FFFCF6" transform="translate(0,4)"/></symbol>
+<symbol id="w3" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#A8D3E6" transform="translate(0,2)"/></symbol>
+<symbol id="w4" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#A8D3E6" transform="translate(0,-6)"/><path d="M22 50l-3 8M34 50l-3 8M46 50l-3 8" fill="none"/></symbol>
+<symbol id="w5" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#A8D3E6" transform="translate(0,-6)"/><circle cx="22" cy="54" r="2.5" fill="#3E3A39"/><circle cx="34" cy="58" r="2.5" fill="#3E3A39"/><circle cx="46" cy="54" r="2.5" fill="#3E3A39"/></symbol>
+<symbol id="w6" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#B9DAA5" transform="translate(0,-8)"/><path d="M35 38L26 52H34L30 62L44 46H35Z" fill="#F6D27A"/></symbol>
 </defs></svg>
 
 <nav><div><a href="#top">首頁</a><a href="#flight">航班</a><a href="#hotel">住宿</a><a href="#days">行程</a><a href="#backup">備案</a><a href="#transit">交通</a><a href="#todo">待辦</a></div></nav>
@@ -127,7 +136,7 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 <g transform="translate(270,0)"><g class="leaf" style="--d:8s;--dl:-5s"><path d="M0 8L0 0Q-9-2-10-10Q0-6 0-6Q0-6 10-10Q9-2 0 0Z" fill="#F6D27A" stroke-width="2"/></g></g>
 <g transform="translate(330,0)"><g class="leaf" style="--d:10s;--dl:-1s"><path d="M0 8L0 0Q-9-2-10-10Q0-6 0-6Q0-6 10-10Q9-2 0 0Z" fill="#F6D27A" stroke-width="2"/></g></g>
 </svg>
-<div class="tx"><small>NAGOYA TRIP 2026</small><h1>名古屋自由行</h1><p>11／16（一）– 11／22（日）・6 晚 7 天</p><div class="cd" id="cd"></div></div>
+<div class="tx"><small>NAGOYA TRIP 2026</small><h1>名古屋自由行</h1><p>11／16（一）– 11／22（日）・6 晚 7 天</p><div class="cd" id="cd"></div><div class="nw" id="now"></div></div>
 </div>
 
 <section id="flight"><h2>航班</h2>
@@ -223,14 +232,25 @@ const D=[
 ['約 12:30–13:00','從名古屋站出發','搭乘名鐵前往中部國際機場。',['名鐵']],
 ['16:40','班機起飛','國泰航空，平安回家。',['飛機']]]}
 ];
+const WI=c=>c<=1?[1,'晴']:c==2?[2,'多雲']:(c>=51&&c<=67)||(c>=80&&c<=82)?[4,'雨']:(c>=71&&c<=77)||c==85||c==86?[5,'雪']:c>=95?[6,'雷雨']:[3,'陰'];
+let wx={},ws='load',sel=0,w0='';
+function fillWx(i){
+  const e=document.getElementById('wx');if(!e)return;
+  const k='2026-'+D[i].d.replace('/','-'),w=wx[k];
+  if(w){const[ic,l]=WI(w.c);e.innerHTML=`<svg><use href="#w${ic}"/></svg><div><b>${l}</b>　${Math.round(w.hi)}°／${Math.round(w.lo)}°C・降雨機率 ${w.p}%</div>`}
+  else if(ws=='ok'&&k<w0){e.style.display='none'}
+  else if(ws=='ok'){const[m,d]=D[i].d.split('/'),o=new Date(Date.UTC(2026,m-1,d-15));e.innerHTML=`<svg><use href="#w3"/></svg><div>預報約 ${o.getUTCMonth()+1}/${o.getUTCDate()} 起開放<br>11 月名古屋平均約 9–17°C，記得帶外套</div>`}
+  else{e.innerHTML=`<svg><use href="#w3"/></svg><div>${ws=='fail'?'暫時無法取得天氣預報':'天氣載入中…'}</div>`}
+}
 const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
 const tg=a=>a.map(n=>`<span class="t t${T[n]}">${n}</span>`).join('');
 function show(i,scroll){
-  const x=D[i];
+  const x=D[i];sel=i;
   [...tabs.children].forEach((b,j)=>b.setAttribute('aria-selected',j===i));
   panel.innerHTML=`<div class="card dh"><div class="ic"><svg><use href="#i${x.ic}"/></svg></div><div><p>Day ${i+1}｜${x.d}（${x.w}）</p><h3>${x.t}</h3><p>主題：${x.th}${x.stay?'・'+x.stay:''}</p></div></div>
-  <div class="info a"><b>交通</b>${x.tr}</div><div class="info y"><b>注意</b>${x.note}</div>
+  <div class="wx" id="wx"></div><div class="info a"><b>交通</b>${x.tr}</div><div class="info y"><b>注意</b>${x.note}</div>
   <div class="tl">${x.items.map((it,k)=>`<div class="it${it[4]?' m':''}" style="--i:${k}"><div class="box">${it[4]?'<span class="must">★ 必去</span>':''}<span class="tm">${it[0]}</span><h4>${it[1]}</h4>${it[2]?`<p>${it[2]}</p>`:''}${it[3].length?`<div class="tags">${tg(it[3])}</div>`:''}</div></div>`).join('')}</div>`;
+  fillWx(i);
   if(scroll)tabs.children[i].scrollIntoView({inline:'center',block:'nearest'});
 }
 D.forEach((x,i)=>{const b=document.createElement('button');b.className='tab';b.setAttribute('role','tab');b.innerHTML=`<b>Day ${i+1}</b><span>${x.d}</span>`;b.onclick=()=>show(i,true);tabs.appendChild(b)});
@@ -240,6 +260,14 @@ if(n<S){cd.innerHTML=`出發倒數 <b>${Math.ceil((S-n)/864e5)}</b> 天`}
 else if(n<E){cur=Math.min(6,Math.floor((n-S)/864e5));cd.innerHTML='旅程進行中，玩得開心！'}
 else{cd.innerHTML='旅程結束，平安到家！'}
 show(cur,false);
+fetch('https://api.open-meteo.com/v1/forecast?latitude=35.17&longitude=136.88&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=16')
+.then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{
+  j.daily.time.forEach((t,i)=>wx[t]={c:j.daily.weather_code[i],hi:j.daily.temperature_2m_max[i],lo:j.daily.temperature_2m_min[i],p:j.daily.precipitation_probability_max[i]});
+  w0=j.daily.time[0];ws='ok';
+  const c=j.current,el=document.getElementById('now');
+  if(c){const[ic,l]=WI(c.weather_code);el.innerHTML=`<svg><use href="#w${ic}"/></svg>名古屋現在　${l}　${Math.round(c.temperature_2m)}°C`;el.classList.add('on')}
+  fillWx(sel);
+}).catch(()=>{ws='fail';fillWx(sel)});
 </script>
 </body>
 </html>
