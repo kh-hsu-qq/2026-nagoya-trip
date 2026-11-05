@@ -45,7 +45,7 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 .dh h3{font-size:19px;font-weight:400;line-height:1.35}.dh p{font-size:13px}
 .info{border:3px solid var(--ink);border-radius:20px;padding:10px 14px;margin-bottom:12px;font-size:14px;animation:pop .5s .1s both}
 .info b{font-weight:400;display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:0 10px;background:var(--bg);margin-right:6px;font-size:13px}
-.info.a{background:var(--aq)}.info.y{background:var(--ye)}
+.info.a{background:var(--aq)}.info.y{background:var(--ye)}.info.c{background:var(--co)}
 .info a{color:var(--ink)}
 .tl{position:relative;padding-left:28px;margin-top:18px}
 .tl::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;border-left:3px dashed var(--ink)}
@@ -58,7 +58,8 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 .box p{font-size:13.5px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .t{border:2px solid var(--ink);border-radius:999px;padding:0 10px;font-size:12px;background:var(--bg)}
-.t0{background:var(--ink);color:var(--bg)}.t1{background:var(--co)}.t2{background:var(--aq)}.t3{background:var(--gr)}.t4{background:var(--ye)}
+.t0{background:var(--ink);color:var(--bg)}.t1{background:var(--co)}.t2{background:var(--aq)}.t3{background:var(--gr)}.t4{background:var(--ye)}.t5{background:var(--bg);border-style:dashed}
+.map{display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:var(--ink);background:var(--aq);border:2px solid var(--ink);border-radius:999px;padding:0 10px 0 6px;font-size:12px}.map svg{width:15px;height:15px}
 .must{float:right;margin:2px 0 0 8px;border:3px solid var(--ink);border-radius:999px;background:var(--co);padding:0 10px;font-size:13px;transform:rotate(4deg)}
 @keyframes pop{0%{opacity:0;transform:translateY(16px) scale(.94)}60%{opacity:1;transform:translateY(-5px) scale(1.02)}100%{opacity:1;transform:none}}
 .todo h3{font-size:16px;font-weight:400;margin:4px 0 6px}
@@ -103,6 +104,7 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 <symbol id="i6" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><rect x="14" y="26" width="7" height="30" fill="#F2A497"/><rect x="43" y="26" width="7" height="30" fill="#F2A497"/><rect x="12" y="35" width="40" height="6" fill="#F2A497"/><path d="M4 16Q32 26 60 16L57 26Q32 32 7 26Z" fill="#F2A497"/></symbol>
 <symbol id="i7" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><g transform="rotate(-20 32 32)"><path d="M28 30L20 12H29L42 30Z" fill="#F2A497"/><path d="M28 34L20 52H29L42 34Z" fill="#F2A497"/><ellipse cx="32" cy="32" rx="27" ry="7" fill="#FFFCF6"/><path d="M8 29L4 20H12L16 28Z" fill="#F2A497"/></g></symbol>
 <symbol id="i8" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"><rect x="18" y="12" width="28" height="46" rx="4" fill="#F6D27A"/><path d="M32 12V4" /><rect x="24" y="20" width="6" height="6" fill="#FFFCF6"/><rect x="34" y="20" width="6" height="6" fill="#FFFCF6"/><rect x="24" y="31" width="6" height="6" fill="#FFFCF6"/><rect x="34" y="31" width="6" height="6" fill="#FFFCF6"/><rect x="27" y="45" width="10" height="13" fill="#F2A497"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"><path d="M12 22C6 15 5 12 5 9a7 7 0 0114 0c0 3-1 6-7 13z" fill="#F2A497"/><circle cx="12" cy="9" r="2.5" fill="#FFFCF6"/></symbol>
 <symbol id="w1" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="32" cy="32" r="12" fill="#F6D27A"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l6 6M43 43l6 6M49 15l-6 6M21 43l-6 6" fill="none"/></symbol>
 <symbol id="w2" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="24" cy="24" r="11" fill="#F6D27A"/><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#FFFCF6" transform="translate(0,4)"/></symbol>
 <symbol id="w3" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#A8D3E6" transform="translate(0,2)"/></symbol>
@@ -188,36 +190,36 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 </main>
 
 <script>
-const T={飛機:0,名鐵:1,地鐵:2,青波線:3,步行:4};
+const T={飛機:0,名鐵:1,地鐵:2,青波線:3,步行:4,美食:5};
 const D=[
-{d:'11/16',w:'一',t:'抵達名古屋',th:'入住與休息',ic:1,tr:'中部國際機場 → 名鐵名古屋站；從飯店步行前往 AEON MALL 約 12–15 分鐘。',note:'抵達當天不安排其他景點，預留入境與交通緩衝時間。商場一般店鋪營業至 21:00，超市至 22:00，餐廳多數至 22:00；個別店鋪可能不同。第一天以吃飯、補給為主，不必逛完整座商場。',items:[
+{d:'11/16',w:'一',t:'抵達名古屋',th:'入住與休息',ic:1,tr:'中部國際機場 → 名鐵名古屋站；從飯店步行前往 AEON MALL 約 12–15 分鐘。',note:'抵達當天不安排其他景點，預留入境與交通緩衝時間。商場一般店鋪營業至 21:00，超市至 22:00，餐廳多數至 22:00；個別店鋪可能不同。第一天以吃飯、補給為主，不必逛完整座商場。',me:'午餐：視航班安排<br>晚餐：AEON Mall 餐廳',items:[
 ['15:35','抵達中部國際機場（NGO）','',['飛機']],
 ['約 16:45–17:30','搭乘名鐵前往名鐵名古屋站','再步行前往飯店。',['名鐵','步行']],
 ['晚上','AEON MALL Nagoya Noritake Garden','吃晚餐；逛 AEON STYLE 超市，採買早餐、飲料、零食及日用品；若孩子還有體力，再逛童裝、玩具與書店。',['步行']]]},
-{d:'11/17',w:'二',t:'東山動植物園',th:'動物與自然',ic:2,stay:'建議停留約 4～6 小時',tr:'名古屋站搭地鐵東山線，至東山公園站下車，步行約 3 分鐘。',note:'園區很大，不必強求全部逛完；部分動物約 16:00 起會陸續回到室內。',items:[
+{d:'11/17',w:'二',t:'東山動植物園',th:'動物與自然',ic:2,stay:'建議停留約 4～6 小時',tr:'名古屋站搭地鐵東山線，至東山公園站下車，步行約 3 分鐘。',note:'園區很大，不必強求全部逛完；部分動物約 16:00 起會陸續回到室內。',me:'早餐：飯店 Buffet<br>午餐：園區餐廳或簡單餐點<br>晚餐：名古屋站周邊自由選擇',items:[
 ['上午','東山動物園','優先看孩子喜歡的動物。',['地鐵','步行'],1],
 ['中午','園區內或附近用餐','',[]],
 ['下午','植物園（視體力）','視體力逛植物園，或提早回飯店。',[]],
 ['晚上','晚餐','',[]]]},
-{d:'11/18',w:'三',t:'LEGOLAND Japan 樂高樂園',th:'兒童主題樂園',ic:3,stay:'建議停留約 6～8 小時',tr:'名古屋站搭青波線至金城埠頭站，再步行約 10 分鐘。',note:'提前網路購買樂園門票；出發前查看當日營業時間及設施維修公告；2 歲小朋友的身高可能限制部分設施，建議事先查看各設施限制。',items:[
+{d:'11/18',w:'三',t:'LEGOLAND Japan 樂高樂園',th:'兒童主題樂園',ic:3,stay:'建議停留約 6～8 小時',tr:'名古屋站搭青波線至金城埠頭站，再步行約 10 分鐘。',note:'提前網路購買樂園門票；出發前查看當日營業時間及設施維修公告；2 歲小朋友的身高可能限制部分設施，建議事先查看各設施限制。',me:'早餐：飯店 Buffet<br>午餐：樂高樂園園區內<br>晚餐：名古屋站附近',items:[
 ['早上','出發前往樂高樂園','盡量接近開園時間抵達。',['青波線','步行']],
 ['上午','主要遊樂設施','安排主要遊樂設施。',[],1],
 ['中午','園區內用餐','',[]],
 ['下午','繼續玩設施・看 LEGO 主題展示','',[]],
 ['晚上','晚餐','',[]]]},
-{d:'11/19',w:'四',t:'名古屋港水族館',th:'海洋生物與表演',ic:4,stay:'水族館約 3 小時',tr:'地鐵東山線至榮站，轉名城線／名港線前往名古屋港站，從 3 號出口步行約 5 分鐘；水族館結束後，搭名港線前往港區役所站，再步行至 LaLaport。',note:'LaLaport 平日商店通常營業至 20:00，餐廳營業時間可能較晚。這天的購物以孩子用品與輕鬆逛街為主，不必每家店都逛。',items:[
+{d:'11/19',w:'四',t:'名古屋港水族館',th:'海洋生物與表演',ic:4,stay:'水族館約 3 小時',tr:'地鐵東山線至榮站，轉名城線／名港線前往名古屋港站，從 3 號出口步行約 5 分鐘；水族館結束後，搭名港線前往港區役所站，再步行至 LaLaport。',note:'LaLaport 平日商店通常營業至 20:00，餐廳營業時間可能較晚。這天的購物以孩子用品與輕鬆逛街為主，不必每家店都逛。',me:'早餐：飯店 Buffet<br>午餐：水族館附近<br>下午茶／晚餐：LaLaport',items:[
 ['上午','名古屋港水族館','優先看海豚表演、虎鯨訓練及孩子有興趣的海洋生物；表演時間以當日官方行程為準。',['地鐵','步行'],1],
 ['中午','園內用餐','',[]],
 ['下午','LaLaport 購物與休息','童裝、玩具、生活用品，依孩子體力安排室內親子設施；若水族館逛得比較久，LaLaport 縮短為 1.5–2 小時即可。',['地鐵','步行']],
 ['晚上','晚餐','',[]]]},
-{d:'11/20',w:'五',t:'名城公園銀杏＋名古屋城',th:'秋季散步與名古屋歷史',ic:5,stay:'建議停留約 3～5 小時',tr:'名城公園：搭地鐵前往公園周邊站點；名古屋城：搭地鐵名城線至名古屋城站。',note:'銀杏及紅葉的實際狀況會受當年天候影響；名古屋城可視孩子體力決定是否入內。',items:[
+{d:'11/20',w:'五',t:'名城公園銀杏＋名古屋城',th:'秋季散步與名古屋歷史',ic:5,stay:'建議停留約 3～5 小時',tr:'名城公園：搭地鐵前往公園周邊站點；名古屋城：搭地鐵名城線至名古屋城站。',note:'銀杏及紅葉的實際狀況會受當年天候影響；名古屋城可視孩子體力決定是否入內。名古屋城開放時間到 16:30。',me:'早餐：飯店 Buffet<br>午餐：矢場とん 味噌豬排<br>晚餐：世界の山ちゃん 手羽先',items:[
 ['上午','名城公園','散步、欣賞銀杏與秋季景色。',['地鐵','步行'],1],
-['中午','午餐','',[]],
-['下午','名古屋城','視體力前往。',['地鐵']],
-['晚上','晚餐','',[]]]},
-{d:'11/21',w:'六',t:'熱田神宮＋白鳥庭園紅葉點燈',th:'日本神社與秋季庭園',ic:6,stay:'熱田神宮約 1.5～2 小時；白鳥庭園約 2～3 小時',tr:'熱田神宮：可搭名鐵至神宮前站，或搭地鐵至熱田神宮西站，再步行前往；白鳥庭園：地鐵名城線至熱田神宮西站，再步行約 10 分鐘。',note:'白鳥庭園 11/21 有官方公布的紅葉點燈活動，開園延長至 20:00，最後入園時間 19:30；約 16:00 開始點燈，無須預約，使用一般門票即可。白鳥庭園一般門票成人 ¥300，中學生以下免費。晚間氣溫較低，記得準備外套；傍晚園內可能較擁擠。 <a href="https://www.shirotori-garden.jp/calendar/kanpuukai/index.html" target="_blank" rel="noopener">官方活動資訊</a>',items:[
+['中午','午餐：矢場とん 名古屋城金シャチ横丁店','・名古屋城旁，順路用餐<br>・不必額外搭車前往其他分店<br>・建議品嚐味噌豬排或味噌豬排丼',['美食'],0,'矢場とん 名古屋城金シャチ横丁店 名古屋'],
+['下午','名古屋城','視體力前往；開放時間到 16:30。',['地鐵']],
+['晚上','晚餐：世界の山ちゃん 名駅新幹線口店','・名古屋站太閤通口附近<br>・手羽先為名古屋代表性料理<br>・可分享雞翅及其他料理',['美食'],0,'世界の山ちゃん 名駅新幹線口店 名古屋']]},
+{d:'11/21',w:'六',t:'熱田神宮＋白鳥庭園紅葉點燈',th:'日本神社與秋季庭園',ic:6,stay:'熱田神宮約 1.5～2 小時；白鳥庭園約 2～3 小時',tr:'熱田神宮：可搭名鐵至神宮前站，或搭地鐵至熱田神宮西站，再步行前往；白鳥庭園：地鐵名城線至熱田神宮西站，再步行約 10 分鐘。',note:'白鳥庭園 11/21 有官方公布的紅葉點燈活動，開園延長至 20:00，最後入園時間 19:30；約 16:00 開始點燈，無須預約，使用一般門票即可。白鳥庭園一般門票成人 ¥300，中學生以下免費。晚間氣溫較低，記得準備外套；傍晚園內可能較擁擠。 <a href="https://www.shirotori-garden.jp/calendar/kanpuukai/index.html" target="_blank" rel="noopener">官方活動資訊</a>',me:'早餐：飯店 Buffet<br>午餐：蓬萊軒鰻魚飯三吃<br>晚餐：飯店附近自由選擇，或簡單用餐',items:[
 ['上午','熱田神宮','在神宮境內散步、參拜及拍照。',['名鐵','地鐵','步行'],1],
-['中午','午餐','',[]],
+['中午','午餐：あつた蓬莱軒 神宮店','・熱田神宮附近，與當天景點順路<br>・建議 11:00 左右抵達，避開較晚的排隊時段<br>・必吃：鰻魚飯三吃（ひつまぶし）',['美食'],0,'あつた蓬莱軒 神宮店 名古屋'],
 ['下午','白鳥庭園','欣賞日間庭園、池塘與秋季景色。',['地鐵','步行']],
 ['約 16:00 起','紅葉點燈','欣賞紅葉點燈，使用一般門票即可。',[],1],
 ['約 17:00–18:00','視孩子體力決定回程','不必待到活動結束。',['地鐵']],
@@ -245,8 +247,8 @@ function show(i,scroll){
   const x=D[i];sel=i;
   [...tabs.children].forEach((b,j)=>b.setAttribute('aria-selected',j===i));
   panel.innerHTML=`<div class="card dh"><div class="ic"><svg><use href="#i${x.ic}"/></svg></div><div><p>Day ${i+1}｜${x.d}（${x.w}）</p><h3>${x.t}</h3><p>主題：${x.th}${x.stay?'・'+x.stay:''}</p></div></div>
-  <div class="wx" id="wx"></div><div class="info a"><b>交通</b>${x.tr}</div><div class="info y"><b>注意</b>${x.note}</div>
-  <div class="tl">${x.items.map((it,k)=>`<div class="it${it[4]?' m':''}" style="--i:${k}"><div class="box">${it[4]?'<span class="must">★ 必去</span>':''}<span class="tm">${it[0]}</span><h4>${it[1]}</h4>${it[2]?`<p>${it[2]}</p>`:''}${it[3].length?`<div class="tags">${tg(it[3])}</div>`:''}</div></div>`).join('')}</div>`;
+  <div class="wx" id="wx"></div><div class="info a"><b>交通</b>${x.tr}</div><div class="info y"><b>注意</b>${x.note}</div>${x.me?`<div class="info c"><b>餐飲</b>${x.me}</div>`:''}
+  <div class="tl">${x.items.map((it,k)=>`<div class="it${it[4]?' m':''}" style="--i:${k}"><div class="box">${it[4]?'<span class="must">★ 必去</span>':''}<span class="tm">${it[0]}</span><h4>${it[1]}</h4>${it[2]?`<p>${it[2]}</p>`:''}${it[3].length||it[5]?`<div class="tags">${tg(it[3])}${it[5]?`<a class="map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(it[5])}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#pin"/></svg>Google 地圖</a>`:''}</div>`:''}</div></div>`).join('')}</div>`;
   fillWx(i);
   if(scroll)tabs.children[i].scrollIntoView({inline:'center',block:'nearest'});
 }
