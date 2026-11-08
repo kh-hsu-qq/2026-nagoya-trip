@@ -13,7 +13,7 @@ body{font-family:'Huninn','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans
 nav{position:fixed;top:0;left:0;right:0;z-index:10;background:var(--bg);border-bottom:3px solid var(--ink);padding:env(safe-area-inset-top,0px) 10px 0}
 nav div{display:flex;gap:8px;max-width:560px;margin:0 auto;overflow-x:auto;padding:7px 0;scrollbar-width:none}
 nav a{flex:1 0 auto;text-align:center;text-decoration:none;color:var(--ink);border:3px solid var(--ink);border-radius:999px;padding:2px 14px;font-size:14px;background:var(--bg)}
-nav a:nth-child(1){background:var(--co)}nav a:nth-child(2){background:var(--aq)}nav a:nth-child(3){background:var(--ye)}nav a:nth-child(4){background:var(--gr)}nav a:nth-child(5){background:var(--co)}nav a:nth-child(6){background:var(--aq)}nav a:nth-child(7){background:var(--bg)}
+nav a:nth-child(1){background:var(--co)}nav a:nth-child(2){background:var(--aq)}nav a:nth-child(3){background:var(--ye)}nav a:nth-child(4){background:var(--gr)}nav a:nth-child(5){background:var(--co)}nav a:nth-child(6){background:var(--aq)}nav a:nth-child(7){background:var(--ye)}nav a:nth-child(8){background:var(--bg)}
 main{max-width:560px;margin:0 auto;padding:calc(66px + env(safe-area-inset-top,0px)) 16px 0}
 section{padding:22px 0 4px}
 h2{font-size:22px;font-weight:400;margin-bottom:12px;display:flex;align-items:center;gap:8px}
@@ -62,11 +62,23 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 .map{display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:var(--ink);background:var(--aq);border:2px solid var(--ink);border-radius:999px;padding:0 10px 0 6px;font-size:12px}.map svg{width:15px;height:15px}
 .must{float:right;margin:2px 0 0 8px;border:3px solid var(--ink);border-radius:999px;background:var(--co);padding:0 10px;font-size:13px;transform:rotate(4deg)}
 @keyframes pop{0%{opacity:0;transform:translateY(16px) scale(.94)}60%{opacity:1;transform:translateY(-5px) scale(1.02)}100%{opacity:1;transform:none}}
-.todo h3{font-size:16px;font-weight:400;margin:4px 0 6px}
-.todo label{display:flex;gap:10px;align-items:flex-start;padding:4px 0;font-size:14px;cursor:pointer}
-.todo input{appearance:none;flex:0 0 22px;height:22px;border:3px solid var(--ink);border-radius:8px;background:var(--bg);margin-top:2px}
+.todo input{appearance:none;-webkit-appearance:none;flex:0 0 24px;height:24px;border:3px solid var(--ink);border-radius:8px;background:var(--bg);margin:0;cursor:pointer}
 .todo input:checked{background:var(--gr)}
-.todo input:checked+span{text-decoration:line-through;opacity:.6}
+.todo input:checked::after{content:"";display:block;width:6px;height:12px;border:solid var(--ink);border-width:0 3px 3px 0;transform:translate(5px,1px) rotate(45deg)}
+.todo input:checked+span{text-decoration:line-through;opacity:.55}
+.grp{border:3px solid var(--ink);border-radius:22px;box-shadow:0 4px 0 var(--ink);margin-bottom:14px;background:var(--bg);overflow:hidden}
+.grp summary{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;font-size:16px;cursor:pointer;list-style:none;background:var(--g)}
+.grp summary::-webkit-details-marker{display:none}
+.grp summary small{display:block;font-size:12px}
+.cnt{flex:0 0 auto;border:3px solid var(--ink);border-radius:999px;background:var(--bg);padding:0 10px;font-size:13px}
+.grp.done .cnt{background:var(--gr)}
+.grp .ls{padding:6px 14px 10px}
+.todo label{display:flex;gap:10px;align-items:center;padding:7px 0;font-size:15px;cursor:pointer}
+.todo label+label{border-top:2px dashed #3E3A3944}
+.pg{display:flex;justify-content:space-between;gap:8px;font-size:14px}.pg b{font-weight:400}
+.sync{font-size:12px;text-align:right}
+.bar{height:16px;border:3px solid var(--ink);border-radius:999px;background:var(--bg);margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--gr);transition:width .5s cubic-bezier(.3,1.6,.5,1)}
 .bk h3{font-size:17px;font-weight:400;margin:2px 0 4px}
 .bk p,.bk li{font-size:14px}.bk ul{padding-left:20px;margin:4px 0}
 .bk .pill{margin-bottom:2px}
@@ -113,7 +125,7 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 <symbol id="w6" viewBox="0 0 64 64" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M18 48Q6 48 8 38Q10 30 20 32Q24 20 38 24Q50 26 50 36Q60 36 58 44Q56 50 48 48Z" fill="#B9DAA5" transform="translate(0,-8)"/><path d="M35 38L26 52H34L30 62L44 46H35Z" fill="#F6D27A"/></symbol>
 </defs></svg>
 
-<nav><div><a href="#top">首頁</a><a href="#flight">航班</a><a href="#hotel">住宿</a><a href="#days">行程</a><a href="#backup">備案</a><a href="#transit">交通</a><a href="#todo">待辦</a></div></nav>
+<nav><div><a href="#top">首頁</a><a href="#flight">航班</a><a href="#hotel">住宿</a><a href="#days">行程</a><a href="#backup">備案</a><a href="#transit">交通</a><a href="#lug">行李</a><a href="#todo">確認</a></div></nav>
 
 <main id="top">
 <div class="card hero">
@@ -172,20 +184,12 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 <div class="r"><span class="pill">11/22</span><div><b>名鐵：名古屋站 → 機場</b><small>一般車票到站買；μSKY 指定座位券可預買</small></div></div>
 </div></section>
 
-<section id="todo"><h2>出發前待辦</h2>
-<div class="card todo">
-<h3>時間確認</h3>
-<label><input type="checkbox"><span>水族館營業時間與表演時刻</span></label>
-<label><input type="checkbox"><span>白鳥庭園紅葉點燈官方公告</span></label>
-<h3 style="margin-top:10px">門票</h3>
-<label><input type="checkbox"><span>東山動植物園門票</span></label>
-<label><input type="checkbox"><span>樂高樂園指定日期門票</span></label>
-<label><input type="checkbox"><span>名古屋城門票</span></label>
-<label><input type="checkbox"><span>白鳥庭園門票</span></label>
-<h3 style="margin-top:10px">車票</h3>
-<label><input type="checkbox"><span>機場到名古屋車站車票</span></label>
-<label><input type="checkbox"><span>市區地鐵票</span></label>
-</div>
+<section id="lug"><h2>行李檢查清單</h2>
+<div class="card" style="padding:12px 14px"><div class="pg"><span>已完成 <b id="lugn">0／0</b></span><span class="sync"></span></div><div class="bar"><i id="lugbar"></i></div></div>
+<div class="todo" id="lugl"></div></section>
+
+<section id="todo"><h2>確認事項</h2>
+<div class="todo" id="todol"></div>
 <p class="foot">旅途愉快，平安回家 ♪</p></section>
 </main>
 
@@ -267,6 +271,66 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=35.17&longitude=136.88&cu
   if(c){const[ic,l]=WI(c.weather_code);el.innerHTML=`<svg><use href="#w${ic}"/></svg>名古屋現在　${l}　${Math.round(c.temperature_2m)}°C`;el.classList.add('on')}
   fillWx(sel);
 }).catch(()=>{ws='fail';fillWx(sel)});
+
+/* ===== 清單（可跨手機同步）===== */
+// 同步網址：填入 Firebase Realtime Database 的網址（結尾不要加 /），例如 'https://xxxx-default-rtdb.asia-southeast1.firebasedatabase.app'
+// 留空則只存在各自手機上。
+const SYNC='';
+const CL={
+lug:[
+['① 衣物清單','托運行李','#F2A497',['大人上衣','大人長褲','大人內衣','大人襪子','大人睡衣','大人外套','小孩上衣','小孩長褲','小孩內衣','小孩襪子','小孩睡衣','小孩保暖外套','小孩備用衣物','帽子（依需求）','圍巾／保暖配件（依天氣）']],
+['② 小孩專用用品','','#A8D3E6',['尿布','濕紙巾','乾紙巾','尿布墊','奶瓶','奶粉','奶嘴','安撫玩偶','小孩餐具','圍兜','零食／餅乾','小孩常用藥品','退熱貼','體溫計','兒童口罩','兒童牙刷／牙膏','兒童沐浴用品','兒童拖鞋','推車','推車雨罩','小孩玩具／繪本','睡覺用品']],
+['③ 盥洗與個人用品','','#F6D27A',['大人牙刷／牙膏','洗面乳','卸妝用品']],
+['④ 隨身背包','搭飛機＋每天出門','#B9DAA5',['全家護照（確認效期）','機票／登機資訊','飯店訂房資訊','手機','錢包／日幣現金','信用卡','交通 IC 卡','手機充電線','行動電源','相機／相機電池','小孩備用衣物（各 1 套）','尿布（當日份＋備用）','濕紙巾／面紙','水壺','零食／小孩點心','小孩常用藥','口罩','摺疊傘']]],
+todo:[
+['時間確認','','#A8D3E6',['水族館營業時間與表演時刻','白鳥庭園紅葉點燈官方公告']],
+['門票','','#F6D27A',['東山動植物園門票','樂高樂園指定日期門票','名古屋城門票','白鳥庭園門票']],
+['車票','','#B9DAA5',['機場到名古屋車站車票','市區地鐵票']]]};
+const hs=t=>{let h=5381;for(const c of t)h=(h*33^c.charCodeAt(0))>>>0;return 'k'+h.toString(36)};
+let st={},pend={},touch={};
+try{st=JSON.parse(localStorage.getItem('chk')||'{}')}catch(e){}
+const sv=()=>{try{localStorage.setItem('chk',JSON.stringify(st))}catch(e){}};
+const base=SYNC.replace(/\/+$/,'');
+const stat=m=>document.querySelectorAll('.sync').forEach(e=>e.textContent=m);
+function counts(){
+  document.querySelectorAll('.grp').forEach(g=>{const a=[...g.querySelectorAll('input')],n=a.filter(i=>i.checked).length;g.querySelector('.cnt').textContent=n+'／'+a.length;g.classList.toggle('done',n==a.length)});
+  const L=[...document.querySelectorAll('#lugl input')],n=L.filter(i=>i.checked).length;
+  document.getElementById('lugn').textContent=n+'／'+L.length;
+  document.getElementById('lugbar').style.width=(L.length?n/L.length*100:0)+'%';
+}
+function paint(){document.querySelectorAll('.todo input').forEach(i=>{if(Date.now()-(touch[i.dataset.k]||0)>4000)i.checked=!!st[i.dataset.k]});counts()}
+function build(id,list,open){
+  document.getElementById(id).innerHTML=list.map((g,gi)=>`<details class="grp" style="--g:${g[2]}"${open||gi==0?' open':''}><summary><span>${g[0]}${g[1]?`<small>${g[1]}</small>`:''}</span><span class="cnt"></span></summary><div class="ls">${g[3].map(t=>`<label><input type="checkbox" data-k="${hs(g[0]+t)}"><span>${t}</span></label>`).join('')}</div></details>`).join('');
+}
+build('lugl',CL.lug,false);build('todol',CL.todo,true);
+document.querySelectorAll('.todo input').forEach(i=>i.onchange=()=>{
+  const k=i.dataset.k;touch[k]=Date.now();
+  if(i.checked)st[k]=true;else delete st[k];
+  pend[k]=i.checked?true:null;sv();counts();push();
+});
+async function push(){
+  if(!base)return;
+  const snap={...pend},body=JSON.stringify(snap);
+  try{
+    const r=await fetch(base+'/chk.json',{method:'PATCH',body});if(!r.ok)throw 0;
+    Object.keys(snap).forEach(k=>{if(pend[k]===snap[k])delete pend[k]});
+    stat('已同步 '+new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}));
+  }catch(e){stat('同步失敗，稍後自動重試')}
+}
+async function pull(){
+  if(!base)return;
+  if(Object.keys(pend).length){await push()}
+  try{
+    const r=await fetch(base+'/chk.json');if(!r.ok)throw 0;
+    const j=await r.json()||{};
+    Object.keys(pend).forEach(k=>{if(pend[k])j[k]=true;else delete j[k]});
+    st=j;sv();paint();
+    stat('已同步 '+new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}));
+  }catch(e){stat('同步失敗，稍後自動重試')}
+}
+paint();
+if(base){stat('同步中…');pull();setInterval(()=>{if(document.visibilityState=='visible')pull()},8000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState=='visible')pull()})}
+else stat('尚未設定同步（僅存在這支手機）');
 </script>
 </body>
 </html>
