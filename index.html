@@ -89,7 +89,7 @@ h1{font-size:32px;font-weight:400;line-height:1.3}
 .tr7 small{font-size:13px;display:block}
 .tr7 .t{margin-left:6px;vertical-align:1px}
 .wx{display:flex;gap:10px;align-items:center;border:3px solid var(--ink);border-radius:20px;background:var(--bg);padding:6px 14px;margin-bottom:12px;font-size:14px;animation:pop .5s .05s both}
-.wx svg{flex:0 0 38px;width:38px;height:38px}.wx b{font-weight:400;font-size:16px}
+.wx svg{flex:0 0 38px;width:38px;height:38px}.wx b{font-weight:400;font-size:16px}.wx small{display:block;font-size:12px;line-height:1.4;margin-top:2px}.wx a{color:var(--ink)}
 .nw{display:none;margin-top:8px;font-size:14px;align-items:center;justify-content:center;gap:6px}.nw.on{display:flex}.nw svg{width:28px;height:28px}
 .foot{text-align:center;font-size:13px;margin-top:20px}
 .cloud{animation:fl 8s ease-in-out infinite alternate}.cloud.b{animation-duration:11s;animation-direction:alternate-reverse}
@@ -240,10 +240,15 @@ let wx={},ws='load',sel=0,w0='';
 function fillWx(i){
   const e=document.getElementById('wx');if(!e)return;
   const k='2026-'+D[i].d.replace('/','-'),w=wx[k];
-  if(w){const[ic,l]=WI(w.c);e.innerHTML=`<svg><use href="#w${ic}"/></svg><div><b>${l}</b>　${Math.round(w.hi)}°／${Math.round(w.lo)}°C・降雨機率 ${w.p}%</div>`}
+  const TK='<a href="https://tenki.jp/forecast/5/26/5110/23100/10days.html" target="_blank" rel="noopener">tenki.jp</a>';
+  if(w){
+    const[ic,l]=WI(w.c);
+    const r=w.s=='j'?((w.mm||0)>=0.1?`降雨量 ${w.mm.toFixed(1)} mm`:'無降雨'):`降雨機率 ${w.p==null?'—':w.p}%`;
+    e.innerHTML=`<svg><use href="#w${ic}"/></svg><div><b>${l}</b>　${Math.round(w.hi)}°／${Math.round(w.lo)}°C・${r}<small>${w.s=='j'?'日本氣象廳（JMA）模型':'Open-Meteo 綜合模型'}・${TK} ↗</small></div>`;
+  }
   else if(ws=='ok'&&k<w0){e.style.display='none'}
-  else if(ws=='ok'){const[m,d]=D[i].d.split('/'),o=new Date(Date.UTC(2026,m-1,d-15));e.innerHTML=`<svg><use href="#w3"/></svg><div>預報約 ${o.getUTCMonth()+1}/${o.getUTCDate()} 起開放<br>11 月名古屋平均約 9–17°C，記得帶外套</div>`}
-  else{e.innerHTML=`<svg><use href="#w3"/></svg><div>${ws=='fail'?'暫時無法取得天氣預報':'天氣載入中…'}</div>`}
+  else if(ws=='ok'){const[m,d]=D[i].d.split('/'),o=new Date(Date.UTC(2026,m-1,d-15)),late=o.toISOString().slice(0,10)>w0;e.innerHTML=`<svg><use href="#w3"/></svg><div>${late?`預報約 ${o.getUTCMonth()+1}/${o.getUTCDate()} 起開放`:'這天的預報資料暫時取不到'}<br>11 月名古屋平均約 9–17°C，記得帶外套<small>${TK} ↗</small></div>`}
+  else{e.innerHTML=`<svg><use href="#w3"/></svg><div>${ws=='fail'?'暫時無法取得天氣預報':'天氣載入中…'}<small>${TK} ↗</small></div>`}
 }
 const tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
 const tg=a=>a.map(n=>`<span class="t t${T[n]}">${n}</span>`).join('');
@@ -263,14 +268,20 @@ if(n<S){cd.innerHTML=`出發倒數 <b>${Math.ceil((S-n)/864e5)}</b> 天`}
 else if(n<E){cur=Math.min(6,Math.floor((n-S)/864e5));cd.innerHTML='旅程進行中，玩得開心！'}
 else{cd.innerHTML='旅程結束，平安到家！'}
 show(cur,false);
-fetch('https://api.open-meteo.com/v1/forecast?latitude=35.17&longitude=136.88&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=16')
-.then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{
-  j.daily.time.forEach((t,i)=>wx[t]={c:j.daily.weather_code[i],hi:j.daily.temperature_2m_max[i],lo:j.daily.temperature_2m_min[i],p:j.daily.precipitation_probability_max[i]});
-  w0=j.daily.time[0];ws='ok';
-  const c=j.current,el=document.getElementById('now');
-  if(c){const[ic,l]=WI(c.weather_code);el.innerHTML=`<svg><use href="#w${ic}"/></svg>名古屋現在　${l}　${Math.round(c.temperature_2m)}°C`;el.classList.add('on')}
+const Q='latitude=35.17&longitude=136.88&current=temperature_2m,weather_code&timezone=Asia%2FTokyo';
+const get=u=>fetch(u).then(r=>{if(!r.ok)throw 0;return r.json()});
+Promise.allSettled([
+  get('https://api.open-meteo.com/v1/forecast?'+Q+'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=16'),
+  get('https://api.open-meteo.com/v1/jma?'+Q+'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum&forecast_days=11')
+]).then(([o,m])=>{
+  if(o.status!='fulfilled'&&m.status!='fulfilled'){ws='fail';fillWx(sel);return}
+  if(o.status=='fulfilled'){const d=o.value.daily;d.time.forEach((t,i)=>{wx[t]={s:'o',c:d.weather_code[i],hi:d.temperature_2m_max[i],lo:d.temperature_2m_min[i],p:d.precipitation_probability_max[i]}});w0=d.time[0]}
+  if(m.status=='fulfilled'){const d=m.value.daily;d.time.forEach((t,i)=>{if(d.temperature_2m_max[i]!=null&&d.weather_code[i]!=null)wx[t]={s:'j',c:d.weather_code[i],hi:d.temperature_2m_max[i],lo:d.temperature_2m_min[i],mm:d.precipitation_sum[i]}});if(!w0)w0=d.time[0]}
+  ws='ok';
+  const cu=(m.value&&m.value.current&&m.value.current.temperature_2m!=null)?m.value.current:(o.value&&o.value.current),el=document.getElementById('now');
+  if(cu){const[ic,l]=WI(cu.weather_code);el.innerHTML=`<svg><use href="#w${ic}"/></svg>名古屋現在　${l}　${Math.round(cu.temperature_2m)}°C`;el.classList.add('on')}
   fillWx(sel);
-}).catch(()=>{ws='fail';fillWx(sel)});
+});
 
 /* ===== 清單（可跨手機同步）===== */
 // 同步網址：填入 Firebase Realtime Database 的網址（結尾不要加 /），例如 'https://xxxx-default-rtdb.asia-southeast1.firebasedatabase.app'
